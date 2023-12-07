@@ -9,7 +9,6 @@
             <div class="row">
                 <div class="col">${car.licensePlate}</div>
                 <div class="col">${car.parkingSpot}</div>
-                <div class="col">${car.ownerName}</div>
             </div>
         </c:forEach>
     </div>

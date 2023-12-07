@@ -5,13 +5,12 @@
 <t:pageTemplate pageTitle="Parking Lot">
     <h1>Welcome to the Parking Lot</h1>
     <div class="container text-center">
-        <c:forEach var="car" items="${cars}">
+        <c:forEach var="user" items="${users}">
             <div class="row">
-                <div class="col">${car.licensePlate}</div>
-                <div class="col">${car.parkingSpot}</div>
-                <div class="col">${car.ownerName}</div>
+                <div class="col">${user.username}</div>
+                <div class="col">${user.email}</div>
             </div>
         </c:forEach>
     </div>
-    <h5>Free parking spots: ${numberOfFreeParkingSpots}</h5>
+    <h5>Cars: ${numberOfCars}</h5>
 </t:pageTemplate>

@@ -1,6 +1,6 @@
 package com.parking.parkinglot.common;
 
-public class UserDto {
+public class CarDto {
     Long id;
     String licensePlate;
     String parkingSpot;
