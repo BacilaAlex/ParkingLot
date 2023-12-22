@@ -34,8 +34,8 @@
         </div>
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="user_group">Groups</label>
-                <select class="custom-select d-block w-100" id="user_group" name="user_group" multiple>
+                <label for="user_groups">Groups</label>
+                <select class="custom-select d-block w-100" id="user_groups" name="user_groups" multiple>
                     <c:forEach var="user_group" items="${userGroups}" varStatus="status">
                         <option value="${user_group}">${user_group}</option>
                     </c:forEach>
