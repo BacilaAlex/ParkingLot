@@ -4,7 +4,21 @@ import jakarta.persistence.*;
 
 @Entity
 public class Car {
+    private Long id;
+    private String licensePlate;
+    private String parkingSpot;
     private User owner;
+
+    private CarPhoto photo;
+
+    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public CarPhoto getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(CarPhoto photo) {
+        this.photo = photo;
+    }
 
     @ManyToOne
     public User getOwner() {
@@ -14,8 +28,6 @@ public class Car {
     public void setOwner(User owner) {
         this.owner = owner;
     }
-
-    private Long id;
 
     @Id
     @GeneratedValue
@@ -27,8 +39,6 @@ public class Car {
         this.id = id;
     }
 
-    private String licensePlate;
-
     @Basic
     public String getLicensePlate() {
         return licensePlate;
@@ -37,8 +47,6 @@ public class Car {
     public void setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
     }
-
-    private String parkingSpot;
 
     @Basic
     public String getParkingSpot() {
