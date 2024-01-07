@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:pageTemplate pageTitle="Parking Lot">
-    <h1>Welcome to the Parking Lot</h1>
+    <h1>Cars</h1>
     <form method="POST" action="${pageContext.request.contextPath}/Cars">
         <c:if test="${pageContext.request.isUserInRole('WRITE_CARS')}">
             <a href="${pageContext.request.contextPath}/AddCar" class="btn btn-primary btn-lg">Add Cars</a>
