@@ -4,6 +4,7 @@
 
 <t:pageTemplate pageTitle="Parking Lot">
     <h1>Cars</h1>
+    <h2>NumberOfFreeParkingSpots are ${numberOfFreeParkingSpots}</h2>
     <form method="POST" action="${pageContext.request.contextPath}/Cars">
         <c:if test="${pageContext.request.isUserInRole('WRITE_CARS')}">
             <a href="${pageContext.request.contextPath}/AddCar" class="btn btn-primary btn-lg">Add Cars</a>
@@ -31,7 +32,8 @@
                     </div>
                     <c:if test="${pageContext.request.isUserInRole('WRITE_CARS')}">
                         <div class="col">
-                            <a class="btn btn-secondary" href="${pageContext.request.contextPath}/AddCarPhoto?id=${car.id}">Add photo</a>
+                            <a class="btn btn-secondary"
+                               href="${pageContext.request.contextPath}/AddCarPhoto?id=${car.id}">Add photo</a>
                         </div>
                         <div class="col">
                             <a class="btn btn-secondary" href="${pageContext.request.contextPath}/EditCar?id=${car.id}">Edit

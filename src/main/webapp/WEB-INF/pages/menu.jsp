@@ -20,18 +20,12 @@
 ("/")) eq '/cars.jsp' ? ' active' : ''}" href="${pageContext.request.contextPath}/Cars">Cars</a>
                         </li>
                     </c:if>
-                    <c:if test="${pageContext.request.isUserInRole('READ_USERS')}">
+                    <c:if test="${pageContext.request.isUserInRole('READ_USERS')||pageContext.request.isUserInRole('INVOICING')}">
                         <li class="nav-item">
                             <a class="nav-link ${pageContext.request.requestURI.substring(pageContext.request.requestURI.lastIndexOf
 ("/")) eq '/users.jsp' ? ' active' : ''}" href="${pageContext.request.contextPath}/Users">Users</a>
                         </li>
                     </c:if>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
                 </ul>
                 <form class="d-flex" role="search">
                     <ul class="navbar-nav">

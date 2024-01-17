@@ -1,5 +1,6 @@
 package com.parking.parkinglot.ejb;
 
+import com.parking.parkinglot.common.CarDto;
 import com.parking.parkinglot.common.UserDto;
 import com.parking.parkinglot.entities.User;
 import com.parking.parkinglot.entities.UserGroup;
@@ -71,8 +72,26 @@ public class UsersBean {
     public Collection<String> findUsernamesByUserIds(Collection<Long> userIds) {
         List<String> usernames =
                 entityManager.createQuery("SELECT u.username FROM User u WHERE u.id IN :userIds", String.class)
-                .setParameter("userIds", userIds)
-                .getResultList();
+                        .setParameter("userIds", userIds)
+                        .getResultList();
         return usernames;
+    }
+
+    public void updateUser(String username, String email, String password, Long userId) {
+        User user = entityManager.find(User.class, userId);
+        user.setUsername(username);
+        user.setEmail(email);
+        if (!password.isEmpty())
+            user.setPassword(passwordBean.convertToSha256(password));
+    }
+
+    public UserDto findById(Long userId) {
+        LOG.info("findUserById");
+        for (UserDto user :
+                findAllUsers()) {
+            if (user.getId().equals(userId))
+                return user;
+        }
+        return null;
     }
 }
